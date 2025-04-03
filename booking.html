@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation - Hall Management</title>
+    <link rel="stylesheet" href="booking.css">
+</head>
+<body>
+    <header>
+        <h1>Hall Management System</h1>
+        <nav>
+            <ul>
+                <li><a href="index1.html">Home</a></li>
+                <li><a href="my2.html">Services</a></li>
+                <li><a href="my1.html">Contact</a></li>
+                <li><a href="my3.html">Feedback form</a></li>
+                <li><a href="my4.html">Policy</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="confirmation-message">
+            <div class="icon">🎉</div>
+            <h2>Booking Confirmed!</h2>
+            <p>Your hall has been successfully booked. Thank you for choosing us!</p>
+
+            <div class="booking-details">
+                <h3>Booking Details:</h3>
+                <ul>
+                    <li><strong>Hall Name:</strong> RPH halls</li>
+                    <li><strong>Booking date:</strong>   <div class="date-container" id="liveDate"></div>
+
+                        <script>
+                            // Function to update the live date
+                            function updateLiveDate() {
+                                const dateElement = document.getElementById('liveDate');
+                                const now = new Date();
+                                const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                                const formattedDate = now.toLocaleDateString('en-US', options);
+                                dateElement.textContent = formattedDate;
+                            }
+                    
+                            // Update the date immediately
+                            updateLiveDate();
+                    
+                            // Update the date every second (optional)
+                            setInterval(updateLiveDate, 1000);
+                        </script></li>
+                </ul>
+            </div>
+
+            <div class="actions">
+                <a href="index1.html" class="btn">Return to Home</a>
+                <a href="hall1.html" class="btn">Book Another Hall</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Hall Management System. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Event - Dynamic Banquet Hall</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">Dynamic Banquet Hall</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index1.html">Home</a></li>
+                <li><a href="my2.html">Services</a></li>
+                <li><a href="my1.html">Contact</a></li>
+                <li><a href="my3.html">Contact</a></li>
+                <li><a href="my4.html">Policy</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <section class="booking-form">
+        <h2>Book Your Event</h2>
+        <p>Fill out the form below to reserve your date or inquire about our services.</p>
+        <form action="hall-details.html" method="GET" onsubmit="return validateForm()">
+            <div class="form-group">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Your Phone:</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="event-type">Event Type:</label>
+                <select id="event-type" name="event-type" required>
+                    <option value="">Select an option</option>
+                    <option value="wedding">Wedding</option>
+                    <option value="corporate">Corporate Event</option>
+                    <option value="birthday">Birthday Party</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="date">Event Date:</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+            <div class="form-group">
+                <label for="guests">Number of Guests:</label>
+                <input type="number" id="guests" name="guests" min="1" max="500" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Additional Message:</label>
+                <textarea id="message" name="message" rows="5"></textarea>
+            </div>
+            <div class="actions">
+                <a href="booking.html" class="btn">Book now</a>
+            </div>
+            
+        </form>
+    </section>
+
+
+    <footer>
+        <p>&copy; 2025 Dynamic Banquet Hall. All rights reserved.</p>
+    </footer>
+
+
+    <script>
+        // Set the minimum date for the event date input to today
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('date').setAttribute('min', today);
+
+
+        // Validate the form before submission
+        function validateForm() {
+            const guests = document.getElementById('guests').value;
+            if (guests <= 0) {
+                alert("Number of guests must be at least 1.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>
